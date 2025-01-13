@@ -1,14 +1,83 @@
-<div class="credits-container d-flex justify-content-center align-items-center min-vh-100 bg-light">
-  <div class="credits-card card shadow-lg p-4 rounded-lg" style="max-width: 500px;">
+<div class="credits-container d-flex justify-content-center align-items-center min-vh-100" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+  <div class="credits-card card text-light border-0 shadow-lg p-5 rounded-4" style="max-width: 500px; background-color: rgba(0, 0, 0, 0.6);">
     <div class="image-placeholder text-center mb-4">
-      <img src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png" alt="Developer Icon"
-        class="placeholder-icon img-fluid rounded-circle border border-primary" style="width: 120px; height: 120px;">
+      <img src="assets\profile_icon.jpeg" alt="Developer Icon"
+        class="placeholder-icon img-fluid rounded-circle border border-light shadow" style="width: 120px; height: 120px;">
     </div>
     <div class="credits-content text-center">
-      <h1 class="display-4 text-bg-dark">Desarrollado por: </h1>
-      <h2 class="h3 text-dark">{{ developer.name }}</h2>
-      <h3 class="h5 text-muted">{{ developer.group }}</h3>
-      <h3 class="h5 text-muted">{{ developer.email }}</h3>
+      <h1 class="mb-3 fw-bold" style="font-size: 2rem; letter-spacing: 2px;">Desarrollado por</h1>
+      <h2 class="mb-2" style="font-size: 1.5rem; color: #ffcc00;">{{ developer.name }}</h2>
+      <h3 class="mb-2" style="font-size: 1rem; color: #c3c8d0;">{{ developer.group }}</h3>
     </div>
   </div>
 </div>
+
+<style>
+  /* Créditos Container */
+  .credits-container {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+  }
+
+  /* Créditos Card */
+  .credits-card {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+    text-align: center;
+    padding: 2rem;
+    max-width: 500px;
+  }
+
+  .credits-card h1 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+
+  .credits-card h2 {
+    font-size: 1.5rem;
+    color: #ffcc00;
+  }
+
+  .credits-card h3 {
+    font-size: 1rem;
+    color: #c3c8d0;
+  }
+
+  /* Botón Contactar */
+  .btn-outline-light {
+    border: 2px solid #fff;
+    color: #fff;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-light:hover {
+    background-color: #ffcc00;
+    color: #000;
+    border-color: #ffcc00;
+  }
+
+  /* Imagen */
+  .placeholder-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Responsividad */
+  @media (max-width: 576px) {
+    .credits-card {
+      padding: 1.5rem;
+    }
+
+    .credits-card h1 {
+      font-size: 1.5rem;
+    }
+
+    .credits-card h2 {
+      font-size: 1.2rem;
+    }
+  }
+</style>

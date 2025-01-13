@@ -1,6 +1,6 @@
 export interface Log {
-    expenseId: number,
-    expenseDate: string,
-    amount: number,
-    description: string
+    notificationId: number;
+    notificationText: string;
+    userId: number;
+    notificationDate: string;
 }

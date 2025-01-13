@@ -1,56 +1,59 @@
-// logs.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Log } from '../models/log.model';
 import { AuthService } from './auth.service';
 
-export interface Expense {
-  expenseId: number;
-  expenseDate: string;
-  amount: number;
-  description: string;
+export interface Notification {
+  notificationId: number;
+  notificationText: string;
+  userId: number;
+  notificationDate: string;
 }
 
 interface ApiResponse {
+  notifications: Notification[];
   estado: number;
   msg: string;
-  expenses: Expense[];
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class LogsService {
-  //private apiUrl = 'https://cbdf-aam-apicustomer.onrender.com/api/customers';
-  private apiUrl = 'https://wcbdf-adl-api-expenses.onrender.com/api/v1/expenses';
+export class NotificationsService {
+  private apiUrl = 'https://gerardo-isaac-api-notifications.onrender.com/api/v1/notifications';
 
   constructor(
     private http: HttpClient,
     private authService: AuthService
   ) { }
 
-  getLogs(): Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(this.apiUrl, { headers: this.authService.getAuthHeaders() });
+  getNotifications(): Observable<ApiResponse> {
+    return this.http.get<ApiResponse>(this.apiUrl, { 
+      headers: this.authService.getAuthHeaders() 
+    });
   }
 
-  /*getLogs(): Observable<Log[]> {
-    return this.http.get<Log[]>(this.apiUrl, { headers: this.authService.getAuthHeaders() });
-  }*/
-
-  getLog(id: number): Observable<Log> {
-    return this.http.get<Log>(`${this.apiUrl}/${id}`, { headers: this.authService.getAuthHeaders() });
+  getNotification(id: number): Observable<Notification> {
+    return this.http.get<Notification>(`${this.apiUrl}/${id}`, { 
+      headers: this.authService.getAuthHeaders() 
+    });
   }
 
-  createLog(log: Partial<Log>): Observable<Log> {
-    return this.http.post<Log>(this.apiUrl, log, { headers: this.authService.getAuthHeaders() });
+  createNotification(notification: Partial<Notification>): Observable<Notification> {
+    return this.http.post<Notification>(this.apiUrl, notification, { 
+      headers: this.authService.getAuthHeaders() 
+    });
   }
 
-  updateLog(id: number, log: Partial<Log>): Observable<Log> {
-    return this.http.put<Log>(`${this.apiUrl}/${id}`, log, { headers: this.authService.getAuthHeaders() });
+  updateNotification(id: number, notification: Partial<Notification>): Observable<Notification> {
+    return this.http.put<Notification>(`${this.apiUrl}/${id}`, notification, { 
+      headers: this.authService.getAuthHeaders() 
+    });
   }
 
-  deleteLog(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`, { headers: this.authService.getAuthHeaders() });
+  deleteNotification(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`, { 
+      headers: this.authService.getAuthHeaders() 
+    });
   }
 }

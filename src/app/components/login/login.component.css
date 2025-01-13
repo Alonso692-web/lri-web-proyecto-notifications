@@ -1,0 +1,25 @@
+.vh-100 {
+    background: #f8f9fa;
+}
+.card-header {
+    background-color: transparent;
+}
+.input-group-text {
+    background-color: white;
+}
+.text-primary {
+    color: #4c1d95 !important; /* Morado más oscuro para contraste */
+}
+.btn-primary {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+}
+
+.btn-primary:hover {
+    background-color: #563d7c;
+    border-color: #51387e;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}

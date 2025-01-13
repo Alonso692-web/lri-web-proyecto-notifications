@@ -1,51 +1,52 @@
 <!-- src/app/components/header/header.component.html -->
 
-<nav class="navbar navbar-expand-lg shadow-none" style="background-color: #f5f5f5;">
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm" style="background: linear-gradient(90deg, #4b79a1, #283e51);">
   <div class="container">
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <!-- Botón Toggler -->
+    <button class="navbar-toggler border-0 text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Navegación principal -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <!-- Enlaces de navegación -->
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link px-4 text-secondary" routerLink="/expenses"
-            routerLinkActive="fw-semibold text-dark"
-            style="font-size: 15px;">
-            Inicio
+          <a class="nav-link text-light px-3" routerLink="/expenses" routerLinkActive="fw-bold text-warning">
+            <i class="bi bi-house-door-fill me-1"></i> Inicio
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link px-4 text-secondary" routerLink="/creditos" routerLinkActive="fw-semibold text-dark"
-            style="font-size: 15px;">
-            Créditos
+          <a class="nav-link text-light px-3" routerLink="/creditos" routerLinkActive="fw-bold text-warning">
+            <i class="bi bi-info-circle-fill me-1"></i> Créditos
           </a>
         </li>
       </ul>
 
       <!-- Área de usuario -->
       <div class="navbar-nav align-items-center">
-        <span class="nav-item nav-link text-secondary me-3" style="font-size: 15px;">
-          Bienvenido, {{ authService.currentUserValue?.username }}
+        <span class="nav-item nav-link text-light me-3 fw-light">
+          <i class="bi bi-person-circle me-1"></i> Bienvenido, {{ authService.currentUserValue?.username }}
         </span>
-        <button class="btn btn-danger border-0 px-4" (click)="logout()" style="font-size: 15px;">
-          Salir
+        <button class="btn btn-outline-light btn-sm px-4 fw-bold" (click)="logout()">
+          <i class="bi bi-box-arrow-right me-1"></i> Salir
         </button>
       </div>
     </div>
   </div>
 </nav>
+
 <style>
   .navbar .nav-link {
-    transition: all 0.2s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
   }
 
   .navbar .nav-link:hover {
-    color: #000 !important;
+    color: #ffcc00 !important;
+    transform: scale(1.1);
   }
 
-  .btn-light:hover {
-    background-color: #e9e9e9;
+  .btn-outline-light:hover {
+    background-color: #ffffff !important;
+    color: #283e51 !important;
   }
 </style>
